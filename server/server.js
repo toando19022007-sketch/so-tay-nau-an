@@ -19,14 +19,14 @@ mongoose
   .catch((err) => console.error("❌ Lỗi kết nối MongoDB:", err));
 
 // Định tuyến API
-app.use("/api/auth", require("./routes/authRoutes"));
-
 app.get("/", (req, res) => {
   res.send("Server Sổ Tay Nấu Ăn đang chạy...");
 });
 
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/recipes", require("./routes/recipeRoutes"));
+app.use("/api/reviews", require("./routes/reviewRoutes"));
+app.use("/api/meal-plans", require("./routes/mealPlanRoutes"));
 
 app.listen(PORT, () => {
   console.log(`🚀 Server đang chạy tại cổng ${PORT}`);
